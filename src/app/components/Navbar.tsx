@@ -45,43 +45,84 @@ const Navbar = () => {
       <div className='flex gap-2'>
         <Image src="/Docker Img.png" alt='docker' width={60} height={60} />
         <h1 className='font-bold text-4xl text-blue-600 mt-4'>
-          <Link href="/">docker</Link>
+          <Link href="/"  onMouseEnter={() => router.push('/')} >docker</Link>
         </h1>
       </div>
 
       {/* Center: Links */}
       <div className='flex font-bold text-xl gap-8'>
-        <h1 className='hidden md:flex items-center'
-          onMouseEnter={() => handleMouseEnter('products')}
-          onMouseLeave={() => handleMouseLeave('products')}
-        >
-          <Link href="/products">Products</Link>
-          <span className='ml-1'>{openLinks.products ? <IoIosArrowUp /> : <FaAngleDown />}</span>
-        </h1>
+      <h1
+  className='hidden md:flex items-center'
+  onMouseEnter={() => handleMouseEnter('products')}
+  onMouseLeave={() => handleMouseLeave('products')}
+>
+  <span
+    onMouseEnter={() => router.push('/products')} // This will navigate when hovering over "Products"
+    className="cursor-pointer"
+  >
+    Products
+  </span>
+  <span
+    className='ml-1'
+    onMouseEnter={(e) => e.stopPropagation()} // Prevents navigation when hovering over the icon
+    onMouseLeave={(e) => e.stopPropagation()}
+  >
+    {openLinks.products ? <IoIosArrowUp /> : <FaAngleDown />}
+  </span>
+</h1>
 
-        <h1 className='hidden md:flex items-center'
-          onMouseEnter={() => handleMouseEnter('developer')}
-          onMouseLeave={() => handleMouseLeave('developer')}
-        >
-          <Link href="/developer">Developer</Link>
-          <span className='ml-1'>{openLinks.developer ? <IoIosArrowUp /> : <FaAngleDown />}</span>
-        </h1>
+<h1
+    className='hidden md:flex items-center'
+    onMouseEnter={() => handleMouseEnter('developer')}
+    onMouseLeave={() => handleMouseLeave('developer')}
+  >
+    <span
+      onMouseEnter={() => router.push('/developer')} // Navigate to Developer on hover
+      className="cursor-pointer"
+    >
+      Developer
+    </span>
+    <span
+      className='ml-1'
+      onMouseEnter={(e) => e.stopPropagation()} // Prevents navigation on icon hover
+      onMouseLeave={(e) => e.stopPropagation()}
+    >
+      {openLinks.developer ? <IoIosArrowUp /> : <FaAngleDown />}
+    </span>
+  </h1>
 
-        <h1 className='hidden md:flex items-center'>
-          <Link href="/pricing">Pricing</Link>
-        </h1>
+  <h1
+  className='hidden md:flex items-center'
+  onMouseEnter={() => router.push('/')} // Navigate to Pricing on hover
+>
+  <span className="cursor-pointer">Pricing</span>
+</h1>
+<h1
+  className='hidden md:flex items-center'
+  onMouseEnter={() => router.push('/')} // Navigate to Pricing on hover
+>
+  <span className="cursor-pointer">Support</span>
+</h1>
 
-        <h1 className='hidden md:flex items-center'>
-          <Link href="/support">Support</Link>
-        </h1>
-
-        <h1 className='hidden md:flex items-center'
-          onMouseEnter={() => handleMouseEnter('company')}
-          onMouseLeave={() => handleMouseLeave('company')}
-        >
-          <Link href="/company">Company</Link>
-          <span className='ml-1'>{openLinks.company ? <IoIosArrowUp /> : <FaAngleDown />}</span>
-        </h1>
+        <h1
+    className='hidden md:flex items-center'
+    onMouseEnter={() => handleMouseEnter('company')}
+    onMouseLeave={() => handleMouseLeave('company')}
+  >
+    <span
+      onMouseEnter={() => router.push('/company')} // Navigate to Company on hover
+      className="cursor-pointer"
+    >
+      Company
+    </span>
+    <span
+      className='ml-1'
+      onMouseEnter={(e) => e.stopPropagation()} // Prevents navigation on icon hover
+      onMouseLeave={(e) => e.stopPropagation()}
+    >
+      {openLinks.company ? <IoIosArrowUp /> : <FaAngleDown />}
+    </span>
+  </h1>
       </div>
 
       {/* Right Side: Search and Buttons */}
